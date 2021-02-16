@@ -8,20 +8,15 @@ def initialize(discount = 0)
 end
 
 def total
-  return @total
+  @total
 end
 
 def add_item(title, price, quantity = 1)
-  item_info = Hash.new(0)
-  item_info[:title] = title
-  item_info[:price] = price
-  item_info[:quantity] = quantity
-
-  @items << item_info
-
+  quantity.times do
+  @items << title
+end
+  @last_transaction = (price * quantity)
   @total += (price * quantity)
-
-  @last_transaction = @items[-1][:price]
 end
 
 def apply_discount
@@ -33,22 +28,11 @@ def apply_discount
 end
 
 def items
-  total_items = Array.new(0)
-  @items.each do |item_info|
-    for quantity in 1..item_info[:quantity]
-    total_items << item_info[:title]
-    end
-  end
-total_items
+  @items
 end
 
 def void_last_transaction
-@items.pop(1)
-@total -= @last_transaction
-
-  if @items.size == 0
-    @total = 0.0
-  end
+  @total -= @last_transaction
 end
 
 end
