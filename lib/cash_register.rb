@@ -13,6 +13,7 @@ end
 
 def add_item(title, price, quantity = 1)
 
+quantity.times do
   @items << title
 
   @total += (price * quantity)
