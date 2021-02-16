@@ -30,10 +30,6 @@ def apply_discount
   return "After the discount, the total comes to $#{@total}."
 end
 
-def items
-  @items
-end
-
 def void_last_transaction
 @items.pop(1)
 @total -= @last_transaction
